@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import Posts from './components/Posts'
 import AddPost from './components/AddPost'
+import ModalWindow from './components/Modal'
 import { useState, useEffect } from 'react'
 import Post from './components/Posts'
 import React from "react"
@@ -58,12 +59,13 @@ const deletePost = async (id) => {
     <div className="container">
       <header className="App-header">
         <Header onAdd={() => setShowAddPost(!showAddPost)}
-        showAddPost = {showAddPost}/>
-        {showAddPost && <AddPost onAdd={addPost}/>}
+        showAddPost = {showAddPost} setShowAddPost= {setShowAddPost}/>
+        <ModalWindow onAdd={addPost} show= {showAddPost} setShow = {setShowAddPost}/>
         {posts.length > 0 ? 
         <Posts posts={posts} onDelete = {deletePost}/> : 'No post to show'}
       </header>
     </div>
+
     
   );
 }

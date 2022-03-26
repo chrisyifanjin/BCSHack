@@ -7,7 +7,7 @@ import { Container } from 'react-bootstrap'
 import imageUrl from '../images/logo_transparent.png';
 
 
-const Header = ({title, onAdd, showAdd}) => {
+const Header = ({title, onAdd, showAddPost, setShowAddPost}) => {
     
     const {user, isLoading} = useAuth0();
     
@@ -23,12 +23,12 @@ const Header = ({title, onAdd, showAdd}) => {
           height="50"
           className="d-inline-block align-top"
         />{' '}Friendly Neighbour</Navbar.Brand></Col>
-           <Col><Button text={showAdd ? 'Close' : '+ New'} onClick={onAdd} /></Col>
+           <Col><Button onClick={onAdd} text= "New +" showAddPost={showAddPost} setShowAddPost = {setShowAddPost} style = {{fontSize: 50}}/></Col>
            {!isLoading && <AuthenticationButton />}
          </Container>
         </Navbar>
  
-        </div>
+      </div>
     )
 }
 

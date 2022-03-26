@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Form, Button} from 'react-bootstrap'
 import React from 'react'
 
-const AddPost = ({ onAdd}) => {
+const AddPost = ({onAdd, onSave}) => {
     const [title, setTitle] = useState('')
     const [Price, setPrice] = useState('')
     const [image, setImage] = useState('')
@@ -23,6 +23,9 @@ const AddPost = ({ onAdd}) => {
         setDescription('')
         setLocation('')
         setContact('')
+
+        onSave()
+
     }
 
 

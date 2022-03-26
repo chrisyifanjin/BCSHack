@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types'
 
-const Button = ({color, text, onClick}) => {
+const Button = ({color, text, onClick, modalIsOpen, setModalIsOpen}) => {
+    const modalHandler = (event) => {
+        if (text == "New +") {
+            setModalIsOpen(true);
+        }
+    }
     
     return (
     <button 
-        onClick={onClick} 
+        onClick={function(event){ onClick(); modalHandler()}} 
         style ={{backgroundColor: color}}
         className = 'btn'
     >
