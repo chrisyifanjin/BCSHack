@@ -1,8 +1,8 @@
 import React from 'react'
-// import Button from './Button'
+//import Button from './Button'
 import { Button, Card } from 'react-bootstrap'
 import imageUrl from '../images/logo_transparent.png';
-import { Modal } from 'react-bootstrap'
+import { Modal} from 'react-bootstrap'
 
 
 const Post = ({post, onDelete}) => {
@@ -25,7 +25,7 @@ const Post = ({post, onDelete}) => {
                 <Card.Title>{post.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">${post.Price}</Card.Subtitle>
                 <Card.Text>{post.Description}</Card.Text>
-                <Button variant="primary" onClick={MyVerticallyCenteredModal()}>More</Button>
+                <Button variant="primary">More</Button>
                 
             </Card.Body>
             </Card>
@@ -61,5 +61,5 @@ function MyVerticallyCenteredModal(props) {
       </Modal>
     );
   }
-
+  
 export default Post
