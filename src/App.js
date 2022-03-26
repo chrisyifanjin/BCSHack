@@ -12,7 +12,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [showAddPost, setShowAddPost] = useState(false)
-  const [posts, setPosts] = useState( [])
+  const [showEditPost, setShowEditPost] = useState(false)
+  const [posts, setPosts] = useState([])
+  // const [post, setPost] = useState()
+  const [editingPost, setEditingPost] = useState()
 
   useEffect(() => {
     const getPosts = async () => {
@@ -45,6 +48,27 @@ const addPost =  async (post) => {
   setPosts([...posts, data])
 }
 
+
+// Edit post
+const editPost = async(id) => {
+  posts.map((post) => post.id === id && setEditingPost(post))
+  setShowEditPost(!showEditPost)
+  showEditPost = {showEditPost}
+}
+
+// Save edited post
+const savePost = async(id, editedPost) => {
+  const res = await fetch(`http://localhost:5000/posts/${id}`,{
+    method: 'PUT',
+    headers: {
+      'Content-type':'application/json'
+    },
+    body: JSON.stringify(editedPost)
+  })
+  const data = res.json()
+  setPosts(posts.map((post) => post.id === id ? editedPost : post))
+}
+
 // Delete post
 const deletePost = async (id) => {
   await fetch(`http://localhost:5000/posts/${id}`, {
@@ -54,20 +78,28 @@ const deletePost = async (id) => {
 }
 
 
-
-  return (
-    <div className="container">
-      <header className="App-header">
-        <Header onAdd={() => setShowAddPost(!showAddPost)}
-        showAddPost = {showAddPost} setShowAddPost= {setShowAddPost}/>
-        <ModalWindow onAdd={addPost} show= {showAddPost} setShow = {setShowAddPost}/>
-        {posts.length > 0 ? 
-        <Posts posts={posts} onDelete = {deletePost}/> : 'No post to show'}
-      </header>
-    </div>
-
-    
-  );
+return (
+  <div className="container">
+    <header className="App-header">
+      <Header 
+        onAdd = {() => setShowAddPost(!showAddPost)}
+        showAddPost = {showAddPost}
+      />
+      {showAddPost && <AddPost onAdd = {addPost}/>}
+      {showEditPost && <EditPost 
+                            post = {editingPost}
+                            onSave = {savePost}/>}
+      {posts.length > 0 ?
+      <Posts 
+          showEditPost = {showEditPost}
+          posts = {posts} 
+          onDelete = {deletePost}
+          onEdit = {editPost}
+      />
+      : 'No post to show'}
+    </header>
+  </div>
+);
 }
 
 export default App;

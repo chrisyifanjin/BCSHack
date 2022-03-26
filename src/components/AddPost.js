@@ -12,8 +12,8 @@ const AddPost = ({onAdd, onSave}) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        if (!title) {
-            alert('please add a task')
+        if (!title || !Price || Description || Contact || Location) {
+            alert('Please complete post fields')
         }
         onAdd({title, Price, Description, Contact, Location, image})
 
