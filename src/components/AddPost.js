@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { Form, Button} from 'react-bootstrap'
 import React from 'react'
-import userEvent from '@testing-library/user-event'
-import axios from 'axios'
+
 const AddPost = ({ onAdd}) => {
     const [title, setTitle] = useState('')
     const [Price, setPrice] = useState('')
@@ -25,56 +25,45 @@ const AddPost = ({ onAdd}) => {
         setContact('')
     }
 
-    const state = {
-        file: null 
-    }
-
-    const handleFile = (e) => {
-        let file = e.target.files[0]
-        this.setState({file: file})
-    }
-
-    const handleUpload = (e) => {
-        let file = this.state.file
-
-        let formData = new FormData()
-
-        formData.append('image', file)
-        formData.append()
-    }
 
     return (
-        <form className='add-post-form' onSubmit={onSubmit}>
-            <div className = 'form-control'>
-                <input type='text' placeholder='Title' 
-                value = {title} onChange={(e) => setTitle(e.target.value)}/>
-            </div>
-            <div className = 'form-control'>
-                <input type='text' placeholder='Price' 
-                value = {Price} onChange={(e) => setPrice(e.target.value)}/>
-            </div>
-            <div className = 'form-control'>
-                <input type='text' placeholder='Description' 
-                value = {Description} onChange={(e) => setDescription(e.target.value)}/>
-            </div>
-            <div className = 'form-control'>
-                <input type='text' placeholder='Contact' 
-                value = {Contact} onChange={(e) => setContact(e.target.value)}/>
-            </div>
-            <div className = 'form-control'>
-                <input type='text' placeholder='Location' 
-                value = {Location} onChange={(e) => setLocation(e.target.value)}/>
-            </div>
-            <div className = 'form-control'>
-                <input type='file' name='image' onChange={(e)=> this.handleFile(e)}
-                />
-                <button type='button' onClick={(e) => this.handleUpload(e)}>
-                  Upload!
-                </button>
-            </div>
-            <input type='submit' value='Save post'
-            className='btn btn-block'/>
-        </form>
+        <div>
+            <Form className='add-post-form' onSubmit={onSubmit}>
+                <Form.Group className="mb-3">
+                    <Form.Label>Title: </Form.Label>
+                    <Form.Control type="text" placeholder="Title" value = {title} onChange={(e) => setTitle(e.target.value)}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3" >
+                    <Form.Label>Price: </Form.Label>
+                    <Form.Control type='text' placeholder='Price' value = {Price} onChange={(e) => setPrice(e.target.value)}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3" >
+                    <Form.Label>Description: </Form.Label>
+                    <Form.Control type='text' placeholder='Description' value = {Description} onChange={(e) => setDescription(e.target.value)}/>
+                </Form.Group>
+                
+                <Form.Group className="mb-3" >
+                    <Form.Label>Contact: </Form.Label>
+                    <Form.Control type='text' placeholder='Contact' value = {Contact} onChange={(e) => setContact(e.target.value)}/>
+                </Form.Group>
+                
+                <Form.Group className="mb-3" >
+                    <Form.Label>Location: </Form.Label>
+                    <Form.Control type='text' placeholder='Location' value = {Location} onChange={(e) => setLocation(e.target.value)}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3" >
+                    <Form.Label>Image: </Form.Label>
+                    <Form.Control type='image' placeholder='Add Image' alt="image" value = {image} onChange={(e) => setImage(e.target.value)}/>
+                </Form.Group>
+
+                <Button variant="primary" type='submit' value='Save post' className='btn btn-block'>
+                    Save Post
+                </Button>
+            </Form>
+        </div>
     )
 }
 

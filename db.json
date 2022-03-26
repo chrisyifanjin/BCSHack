@@ -1,22 +1,31 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Gardening",
-      "Price": 30,
-      "Description": "My Garden",
-      "Contact": 9119119111,
-      "Location": "Ubc",
-      "Image": "/Users/jinyifan/Desktop/friendly-neighbor/public/logo192.png"
+      "title": "",
+      "Price": "",
+      "Description": "",
+      "Contact": "",
+      "Location": "",
+      "image": "",
+      "id": 4
     },
     {
-      "title": "Yifan",
-      "Price": "200000000000",
-      "Description": "master in longbored",
-      "Contact": "911911911",
-      "Location": "Center of universe",
+      "title": "An Example",
+      "Price": "100",
+      "Description": "example post description",
+      "Contact": "John Lee",
+      "Location": "blah blah",
       "image": "",
-      "id": 2
+      "id": 5
+    },
+    {
+      "title": "An Example",
+      "Price": "100",
+      "Description": "Example Description",
+      "Contact": "John",
+      "Location": "asdjfiwje",
+      "image": "",
+      "id": 6
     },
     {
       "title": "",
@@ -25,34 +34,52 @@
       "Contact": "",
       "Location": "",
       "image": "",
-      "id": 3
+      "id": 7
     },
     {
-      "title": "yifan",
-      "Price": "ew1",
-      "Description": "das",
-      "Contact": "asd",
-      "Location": "qew",
-      "image": "",
-      "id": 4
-    },
-    {
-      "title": "asd",
-      "Price": "231",
-      "Description": "123",
-      "Contact": "124",
-      "Location": "123",
-      "image": "",
-      "id": 5
-    },
-    {
-      "title": "ads",
+      "title": "",
       "Price": "",
       "Description": "",
       "Contact": "",
       "Location": "",
       "image": "",
-      "id": 6
+      "id": 8
+    },
+    {
+      "title": "Example post 2",
+      "Price": "200",
+      "Description": "Description for example post 2",
+      "Contact": "duffy",
+      "Location": "vancouver",
+      "image": "",
+      "id": 9
+    },
+    {
+      "title": "Example 3",
+      "Price": "123",
+      "Description": "Description for example 3 asdijfojf od sdijf. werijdja ods jeri jfia ",
+      "Contact": "Yifan",
+      "Location": "Vancouver",
+      "image": "",
+      "id": 10
+    },
+    {
+      "title": "",
+      "Price": "",
+      "Description": "",
+      "Contact": "",
+      "Location": "",
+      "image": "",
+      "id": 11
+    },
+    {
+      "title": "hduchsi",
+      "Price": "200",
+      "Description": "csjcbnkdj",
+      "Contact": "23333",
+      "Location": "iiiiiii",
+      "image": "",
+      "id": 12
     }
   ]
 }

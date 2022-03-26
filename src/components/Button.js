@@ -13,12 +13,8 @@ const Button = ({color, text, onClick}) => {
     )
 }
 
-Button.defaultProps = {
-    color: 'steelblue'
-}
 
 Button.propTypes = {
-    color: PropTypes.string,
     text: PropTypes.string,
     onClick: PropTypes.func,
 }

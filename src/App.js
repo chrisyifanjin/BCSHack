@@ -2,7 +2,9 @@ import Header from './components/Header'
 import Posts from './components/Posts'
 import AddPost from './components/AddPost'
 import { useState, useEffect } from 'react'
-import './App.css';
+// import './App.css';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [showAddPost, setShowAddPost] = useState(false)
@@ -15,8 +17,6 @@ function App() {
     }
     getPosts()
   }, [])
-
-  
 
   // Fetch Tasks
   const fetchPosts = async() => {
@@ -48,6 +48,9 @@ const deletePost = async (id) => {
   })
   setPosts(posts.filter((post) => post.id !== id))
 }
+
+const [modalShow, setModalShow] = React.useState(false);
+
   return (
     <div className="container">
       <header className="App-header">
@@ -57,8 +60,17 @@ const deletePost = async (id) => {
         {posts.length > 0 ? 
         <Posts posts={posts} onDelete = {deletePost}/> : 'No post to show'}
       </header>
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
+    
   );
 }
-
+render(<App />);
 export default App;
