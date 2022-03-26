@@ -1,64 +1,33 @@
 import React, { Component } from "react";
-import OlMap from "ol/Map";
-import OlView from "ol/View";
-import OlLayerTile from "ol/layer/Tile";
-import OlSourceOSM from "ol/source/OSM";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
-class PublicMap extends Component {
-  constructor(props) {
-    super(props);
+const mapStyles = {
+  width: "400px",
+  height: "200px",
+};
 
-    this.state = { center: [49.246292, -123.116226], zoom: 20 };
-
-    this.olmap = new OlMap({
-      target: null,
-      layers: [
-        new OlLayerTile({
-          source: new OlSourceOSM(),
-        }),
-      ],
-      view: new OlView({
-        center: this.state.center,
-        zoom: this.state.zoom,
-      }),
-    });
-  }
-
-  updateMap() {
-    this.olmap.getView().setCenter(this.state.center);
-    this.olmap.getView().setZoom(this.state.zoom);
-  }
-
-  componentDidMount() {
-    this.olmap.setTarget("map");
-
-    // Listen to map changes
-    this.olmap.on("moveend", () => {
-      let center = this.olmap.getView().getCenter();
-      let zoom = this.olmap.getView().getZoom();
-      this.setState({ center, zoom });
-    });
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    let center = this.olmap.getView().getCenter();
-    let zoom = this.olmap.getView().getZoom();
-    if (center === nextState.center && zoom === nextState.zoom) return false;
-    return true;
-  }
-
-  userAction() {
-    this.setState({ center: [546000, 6868000], zoom: 5 });
-  }
-
+export class MapContainer extends React.Component {
   render() {
-    this.updateMap(); // Update map on render?
     return (
-      <div id="map" style={{ width: "300px", height: "160px" }}>
-        <button onClick={(e) => this.userAction()}>setState on click</button>
-      </div>
+      <Map
+        google={this.props.google}
+        zoom={11}
+        disableDefaultUI={true}
+        style={mapStyles}
+        initialCenter={{
+          lat: 49.246292,
+          lng: -123.116226, // Vancouver coords
+        }}
+      >
+        <Marker
+          key={1} // Need to be unique
+          position={this.props.geo}
+        ></Marker>
+      </Map>
     );
   }
 }
 
-export default PublicMap;
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyBgao-aq8zyAUnJUCg335-tYIDAI5AJeAc",
+})(MapContainer);

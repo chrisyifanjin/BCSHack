@@ -7,7 +7,8 @@
       "Description": "My Garden",
       "Contact": 9119119111,
       "Location": "Ubc",
-      "Image": "/Users/jinyifan/Desktop/friendly-neighbor/public/logo192.png"
+      "Image": "/Users/jinyifan/Desktop/friendly-neighbor/public/logo192.png",
+      "geo": { "lat": 10, "lng": -123 }
     },
     {
       "title": "Yifan",
@@ -16,7 +17,8 @@
       "Contact": "911911911",
       "Location": "Center of universe",
       "image": "",
-      "id": 2
+      "id": 2,
+      "geo": { "lat": 10, "lng": -123 }
     },
     {
       "title": "",
