@@ -9,8 +9,7 @@ import { useState } from "react";
 const Post = ({post, onDelete}) => {
     return (
         <div className='task'>
-
-            <Card border="primary" >
+            <Card border="primary">
             <Card.Img variant="top" src={imageUrl} alt="logo"/>
             <Card.Body>
                 <Card.Title>{post.title}</Card.Title>
