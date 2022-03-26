@@ -7,10 +7,18 @@ import { useState } from "react";
 
 
 const Post = ({post, onDelete}) => {
+    function filterFakePath(path) {
+        let len = path.length;
+        var position = 0;
+        if (path.includes('fakepath')) {
+            position = path.indexOf('path') + 5
+        }
+        return path.slice(position, len);
+    }
     return (
         <div className='task'>
             <Card border="primary">
-            <Card.Img variant="top" src={imageUrl} alt="logo"/>
+            <Card.Img variant="top" src={post.image !== undefined && post.image !== "" ? filterFakePath(post.image) : imageUrl} alt="logo"/>
             <Card.Body>
                 <Card.Title>{post.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">${post.Price}</Card.Subtitle>
