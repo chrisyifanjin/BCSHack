@@ -1,0 +1,58 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Gardening",
+      "Price": 30,
+      "Description": "My Garden",
+      "Contact": 9119119111,
+      "Location": "Ubc",
+      "Image": "/Users/jinyifan/Desktop/friendly-neighbor/public/logo192.png"
+    },
+    {
+      "title": "Yifan",
+      "Price": "200000000000",
+      "Description": "master in longbored",
+      "Contact": "911911911",
+      "Location": "Center of universe",
+      "image": "",
+      "id": 2
+    },
+    {
+      "title": "",
+      "Price": "",
+      "Description": "",
+      "Contact": "",
+      "Location": "",
+      "image": "",
+      "id": 3
+    },
+    {
+      "title": "yifan",
+      "Price": "ew1",
+      "Description": "das",
+      "Contact": "asd",
+      "Location": "qew",
+      "image": "",
+      "id": 4
+    },
+    {
+      "title": "asd",
+      "Price": "231",
+      "Description": "123",
+      "Contact": "124",
+      "Location": "123",
+      "image": "",
+      "id": 5
+    },
+    {
+      "title": "ads",
+      "Price": "",
+      "Description": "",
+      "Contact": "",
+      "Location": "",
+      "image": "",
+      "id": 6
+    }
+  ]
+}
