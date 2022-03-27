@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-const Button = ({color, text, onClick, modalIsOpen, setModalIsOpen}) => {
+const NewButton = ({color, text, onClick, modalIsOpen, setModalIsOpen}) => {
     const modalHandler = (event) => {
-        if (text == "New +") {
+        if (text == "New +" || text == "More") {
             setModalIsOpen(true);
         }
     }
@@ -19,9 +19,9 @@ const Button = ({color, text, onClick, modalIsOpen, setModalIsOpen}) => {
 }
 
 
-Button.propTypes = {
+NewButton.propTypes = {
     text: PropTypes.string,
     onClick: PropTypes.func,
 }
 
-export default Button
+export default NewButton

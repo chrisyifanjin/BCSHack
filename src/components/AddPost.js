@@ -14,8 +14,14 @@ const AddPost = ({onAdd, onSave}) => {
         e.preventDefault()
         if (!title) {
             alert('please add a task')
-        }
-        onAdd({title, Price, Description, Contact, Location, image})
+        } else if (!Price) {
+            alert('please enter the price')
+        } else if (!Location) {
+            alert('Please enter the location')
+        } else if (!Contact) {
+            alert('Please enter the contact')
+        } else {
+            onAdd({title, Price, Description, Contact, Location, image})
 
         setTitle('')
         setPrice('')
@@ -25,7 +31,7 @@ const AddPost = ({onAdd, onSave}) => {
         setContact('')
 
         onSave()
-
+        }
     }
 
 
